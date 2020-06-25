@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreference
+        app:defaultValue="false"
+        app:key="name"
+        app:summary="sort by name"
+        app:title="Name" />
+
+    <SwitchPreference
+        app:defaultValue="false"
+        app:key="age"
+        app:summary="sort by age"
+        app:title="Age" />
+
+    <SwitchPreference
+        app:defaultValue="false"
+        app:key="color"
+        app:summary="sort by color"
+        app:title="Color" />
+
+</PreferenceScreen>

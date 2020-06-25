@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Open</string>
+    <string name="app_name">Zoo</string>
+    <string name="sort_filter">Filter</string>
+    <string name="display_fragment">DataDisplayFragment</string>
+    <string name="data_create_fragment">DataDisplayFragment</string>
+    <string name="animal_name">Name:</string>
+    <string name="animal_age">Age:</string>
+    <string name="animal_color">Color:</string>
+    <string name="description_name">Some name</string>
+    <string name="description_age">Some Age</string>
+    <string name="register_of_animals">Register of animals</string>
+    <string name="save_button">Save</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_age">Enter age</string>
+    <string name="enter_color">Enter color</string>
+
 </resources>

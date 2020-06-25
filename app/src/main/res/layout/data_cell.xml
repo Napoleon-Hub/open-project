@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:focusable="true"
+            android:padding="8dp">
+
+            <TextView
+                style="@style/StaticTextStyle"
+                android:id="@+id/textName"
+                android:text="@string/animal_name"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                style="@style/StaticTextStyle"
+                android:id="@+id/textAge"
+                android:layout_below="@+id/textName"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/animal_age" />
+
+            <TextView
+                style="@style/StaticTextStyle"
+                android:id="@+id/textColor"
+                android:layout_below="@+id/textAge"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/animal_color" />
+
+            <TextView
+                style="@style/TextDescriptionDataStyle"
+                android:id="@+id/textDescriptionName"
+                android:text="@string/description_name"
+                android:layout_toEndOf="@+id/textName" />
+
+            <TextView
+                style="@style/TextDescriptionDataStyle"
+                android:id="@+id/textDescriptionAge"
+                android:layout_below="@+id/textDescriptionName"
+                android:layout_toEndOf="@+id/textAge"
+                android:text="@string/description_age" />
+            <TextView
+                style="@style/TextDescriptionDataStyle"
+                android:id="@+id/textDescriptionColor"
+                android:layout_below="@+id/textDescriptionAge"
+                android:layout_toEndOf="@+id/textAge"
+                android:text="@string/description_age" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
