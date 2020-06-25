@@ -18,12 +18,12 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
-                app:title="@string/app_name"
                 android:id="@+id/display_fragment_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="@string/app_name" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView

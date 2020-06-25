@@ -9,25 +9,28 @@ import com.example.open.database.entity.Animals
 
 class AnimalsRepository(application: Application) {
     private var noteDao: AnimalsDao
-    private var allNotes : LiveData<List<Animals>>
+    private var allAnimals: LiveData<List<Animals>>
 
     init {
-        val newDatabase : AnimalDatabase? = AnimalDatabase.getInstance(application)
+        val newDatabase: AnimalDatabase? = AnimalDatabase.getInstance(application)
         noteDao = newDatabase!!.animalsDao()
-        allNotes = noteDao.getAllAnimals()
+        allAnimals = noteDao.getAllAnimals()
     }
 
-    fun insert(animals: Animals){
+    fun insert(animals: Animals) {
         InsertAnimalAsyncTask(noteDao).execute(animals)
     }
-    fun update(animals: Animals){
+
+    fun update(animals: Animals) {
         UpdateAnimalAsyncTask(noteDao).execute(animals)
     }
-    fun delete(animals: Animals){
+
+    fun delete(animals: Animals) {
         DeleteAnimalAsyncTask(noteDao).execute(animals)
     }
-    fun getAllAnimals() : LiveData<List<Animals>>{
-        return  allNotes
+
+    fun getAllAnimals(): LiveData<List<Animals>> {
+        return allAnimals
     }
 
     private class InsertAnimalAsyncTask internal constructor(private val animalsDao: AnimalsDao) :

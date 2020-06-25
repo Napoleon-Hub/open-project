@@ -20,7 +20,8 @@ abstract class AnimalDatabase : RoomDatabase() {
             if (instance == null) {
                 instance = Room.databaseBuilder(
                     context.applicationContext,
-                    AnimalDatabase::class.java, "animals_database")
+                    AnimalDatabase::class.java, "animals_database"
+                )
                     .fallbackToDestructiveMigration()
                     .build()
             }

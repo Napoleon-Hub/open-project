@@ -52,6 +52,7 @@ class DataCreateFragment : Fragment() {
         }
     }
 
+    // Save information about animal
     private fun saveAnimal() {
         val name: String = binding?.editName?.text.toString()
         val age: String = binding?.editAge?.text.toString()

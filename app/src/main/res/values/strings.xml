@@ -13,5 +13,14 @@
     <string name="enter_name">Enter name</string>
     <string name="enter_age">Enter age</string>
     <string name="enter_color">Enter color</string>
+    <string name="name">Name</string>
+    <string name="name_key">name</string>
+    <string name="age_key">age</string>
+    <string name="color_key">color</string>
+    <string name="age_name">Age</string>
+    <string name="color_name">Color</string>
+    <string name="sort_by_color">sort by color</string>
+    <string name="sort_by_age">sort by age</string>
+    <string name="sort_by_name">sort by name</string>
 
 </resources>

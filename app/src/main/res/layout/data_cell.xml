@@ -17,23 +17,23 @@
             android:padding="8dp">
 
             <TextView
-                style="@style/StaticTextStyle"
                 android:id="@+id/textName"
-                android:text="@string/animal_name"
+                style="@style/StaticTextStyle"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp" />
+                android:text="@string/animal_name" />
 
             <TextView
-                style="@style/StaticTextStyle"
                 android:id="@+id/textAge"
+                style="@style/StaticTextStyle"
                 android:layout_below="@+id/textName"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/animal_age" />
 
             <TextView
-                style="@style/StaticTextStyle"
                 android:id="@+id/textColor"
+                style="@style/StaticTextStyle"
                 android:layout_below="@+id/textAge"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="16dp"
@@ -41,20 +41,21 @@
                 android:text="@string/animal_color" />
 
             <TextView
-                style="@style/TextDescriptionDataStyle"
                 android:id="@+id/textDescriptionName"
-                android:text="@string/description_name"
-                android:layout_toEndOf="@+id/textName" />
+                style="@style/TextDescriptionDataStyle"
+                android:layout_toEndOf="@+id/textName"
+                android:text="@string/description_name" />
 
             <TextView
-                style="@style/TextDescriptionDataStyle"
                 android:id="@+id/textDescriptionAge"
+                style="@style/TextDescriptionDataStyle"
                 android:layout_below="@+id/textDescriptionName"
                 android:layout_toEndOf="@+id/textAge"
                 android:text="@string/description_age" />
+
             <TextView
-                style="@style/TextDescriptionDataStyle"
                 android:id="@+id/textDescriptionColor"
+                style="@style/TextDescriptionDataStyle"
                 android:layout_below="@+id/textDescriptionAge"
                 android:layout_toEndOf="@+id/textAge"
                 android:text="@string/description_age" />

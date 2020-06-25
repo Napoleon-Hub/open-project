@@ -42,7 +42,10 @@ abstract class SimpleItemTouchHelperCallback : ItemTouchHelper.Callback() {
         }
     }
 
-    override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+    override fun getMovementFlags(
+        recyclerView: RecyclerView,
+        viewHolder: RecyclerView.ViewHolder
+    ): Int {
         val dragFlags = 0 // ItemTouchHelper.UP or ItemTouchHelper.DOWN
         val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
         return ItemTouchHelper.SimpleCallback.makeMovementFlags(dragFlags, swipeFlags)

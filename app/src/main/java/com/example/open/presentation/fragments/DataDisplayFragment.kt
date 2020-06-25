@@ -54,9 +54,7 @@ class DataDisplayFragment : Fragment() {
 
         // I don't know how else put data into ViewModel
         // Only one method i know is deprecated :(
-        animalsViewModel = ViewModelProviders.of(this).get(AnimalsViewModel::class.java)
-        animalsViewModel?.getAllAnimals()?.observe(viewLifecycleOwner,
-            Observer { animals -> adapter.setAnimal(animals) })
+        includeViewModel()
 
         // Handling a click on a list item
         adapterSetOnItemClickListener(adapter)
@@ -69,6 +67,7 @@ class DataDisplayFragment : Fragment() {
                 bundle
             )
         }
+
         binding?.displayFragmentToolbar?.inflateMenu(R.menu.sort_menu)
         binding?.displayFragmentToolbar?.setOnMenuItemClickListener {
             when (it.itemId) {
@@ -80,6 +79,21 @@ class DataDisplayFragment : Fragment() {
             }
         }
 
+    }
+
+//    override fun onResume() {
+//        super.onResume()
+//        val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+//        if (prefs.getBoolean("name", false)){
+//
+//        }
+//    }
+
+    // Function for include View Model
+    private fun includeViewModel() {
+        animalsViewModel = ViewModelProviders.of(this).get(AnimalsViewModel::class.java)
+        animalsViewModel?.getAllAnimals()?.observe(viewLifecycleOwner,
+            Observer { animals -> adapter.setAnimal(animals) })
     }
 
     // Function for include RecycleView

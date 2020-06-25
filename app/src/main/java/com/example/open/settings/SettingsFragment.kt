@@ -13,4 +13,5 @@ class SettingsFragment : PreferenceFragmentCompat() {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.sort_filter)
     }
+
 }
