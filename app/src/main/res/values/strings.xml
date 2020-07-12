@@ -2,7 +2,7 @@
     <string name="app_name">Zoo</string>
     <string name="sort_filter">Filter</string>
     <string name="display_fragment">DataDisplayFragment</string>
-    <string name="data_create_fragment">DataDisplayFragment</string>
+    <string name="data_create_fragment">DataCreateFragment</string>
     <string name="animal_name">Name:</string>
     <string name="animal_age">Age:</string>
     <string name="animal_color">Color:</string>

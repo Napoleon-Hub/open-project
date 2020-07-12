@@ -5,57 +5,70 @@ import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.example.open.database.dao.AnimalsDao
 import com.example.open.database.data.AnimalDatabase
-import com.example.open.database.entity.Animals
+import com.example.open.database.entity.Animal
 
 class AnimalsRepository(application: Application) {
-    private var noteDao: AnimalsDao
-    private var allAnimals: LiveData<List<Animals>>
+    private var animalsDao: AnimalsDao
+    private var allAnimal: LiveData<List<Animal>>
 
     init {
         val newDatabase: AnimalDatabase? = AnimalDatabase.getInstance(application)
-        noteDao = newDatabase!!.animalsDao()
-        allAnimals = noteDao.getAllAnimals()
+        animalsDao = newDatabase!!.animalsDao()
+        allAnimal = animalsDao.getAllAnimals()
     }
 
-    fun insert(animals: Animals) {
-        InsertAnimalAsyncTask(noteDao).execute(animals)
+    fun insert(animal: Animal) {
+        InsertAnimalAsyncTask(animalsDao).execute(animal)
     }
 
-    fun update(animals: Animals) {
-        UpdateAnimalAsyncTask(noteDao).execute(animals)
+    fun update(animal: Animal) {
+        UpdateAnimalAsyncTask(animalsDao).execute(animal)
     }
 
-    fun delete(animals: Animals) {
-        DeleteAnimalAsyncTask(noteDao).execute(animals)
+    fun delete(animal: Animal) {
+        DeleteAnimalAsyncTask(animalsDao).execute(animal)
     }
 
-    fun getAllAnimals(): LiveData<List<Animals>> {
-        return allAnimals
+    fun getAllAnimals(): LiveData<List<Animal>> {
+        return allAnimal
+    }
+
+    fun deleteAllAnimals(){
+        DeleteAllAnimalsAsyncTask(animalsDao).execute()
     }
 
     private class InsertAnimalAsyncTask internal constructor(private val animalsDao: AnimalsDao) :
-        AsyncTask<Animals, Void, Void>() {
+        AsyncTask<Animal, Void, Void>() {
 
-        override fun doInBackground(vararg notes: Animals): Void? {
+        override fun doInBackground(vararg notes: Animal): Void? {
             animalsDao.insert(notes[0])
             return null
         }
     }
 
     private class UpdateAnimalAsyncTask internal constructor(private val animalsDao: AnimalsDao) :
-        AsyncTask<Animals, Void, Void>() {
+        AsyncTask<Animal, Void, Void>() {
 
-        override fun doInBackground(vararg notes: Animals): Void? {
+        override fun doInBackground(vararg notes: Animal): Void? {
             animalsDao.update(notes[0])
             return null
         }
     }
 
     private class DeleteAnimalAsyncTask internal constructor(private val animalsDao: AnimalsDao) :
-        AsyncTask<Animals, Void, Void>() {
+        AsyncTask<Animal, Void, Void>() {
 
-        override fun doInBackground(vararg notes: Animals): Void? {
+        override fun doInBackground(vararg notes: Animal): Void? {
             animalsDao.delete(notes[0])
+            return null
+        }
+    }
+
+    private class DeleteAllAnimalsAsyncTask internal constructor(private val animalsDao: AnimalsDao) :
+        AsyncTask<Void, Void, Void>() {
+
+        override fun doInBackground(vararg voids: Void): Void? {
+            animalsDao.deleteAllAnimals()
             return null
         }
     }

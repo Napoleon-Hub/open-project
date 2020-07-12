@@ -7,8 +7,9 @@
 
     <fragment
         android:id="@+id/DataDisplayFragment"
-        android:name="com.example.open.presentation.fragments.DataDisplayFragment"
+        android:name="com.example.open.presentation.view.DataDisplayFragment"
         android:label="@string/display_fragment"
+        app:defaultNavHost="true"
         tools:layout="@layout/data_display_fragment">
 
         <action
@@ -17,12 +18,14 @@
     </fragment>
     <fragment
         android:id="@+id/DataCreateFragment"
-        android:name="com.example.open.presentation.fragments.DataCreateFragment"
+        android:name="com.example.open.presentation.view.DataCreateFragment"
         android:label="@string/data_create_fragment"
         tools:layout="@layout/data_create_fragment">
 
         <action
             android:id="@+id/action_DataCreateFragment_to_DataDisplayFragment"
-            app:destination="@id/DataDisplayFragment" />
+            app:destination="@id/DataDisplayFragment"
+            app:popUpTo="@+id/DataDisplayFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>

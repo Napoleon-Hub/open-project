@@ -6,37 +6,37 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.open.database.entity.Animals
+import com.example.open.database.entity.Animal
 import java.util.*
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.AnimalsHolder>() {
-    private var animals: List<Animals> = ArrayList()
-    internal var listener: onAnimalClickListener? = null
+    private var animals: List<Animal> = ArrayList()
+    private var listener: onAnimalClickListener? = null
 
     override fun getItemCount(): Int {
         return animals.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): AnimalsHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, parameter: Int): AnimalsHolder {
         val itemView: View =
             LayoutInflater.from(parent.context)
-                .inflate(com.example.open.R.layout.data_cell, parent, false)
+                .inflate(com.example.open.R.layout.animal_item, parent, false)
         return AnimalsHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: AnimalsHolder, position: Int) {
-        val currentAnimal: Animals = animals[position]
+        val currentAnimal: Animal = animals[position]
         holder.editName.text = currentAnimal.name
         holder.editAge.text = currentAnimal.age
         holder.editColor.text = currentAnimal.color
     }
 
-    fun setAnimal(animal: List<Animals>) {
+    fun setAnimal(animal: List<Animal>) {
         this.animals = animal
         notifyDataSetChanged()
     }
 
-    fun getAnimalAt(position: Int): Animals {
+    fun getAnimalAt(position: Int): Animal {
         return animals[position]
     }
 
@@ -60,7 +60,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.AnimalsHolder>() {
     }
 
     interface onAnimalClickListener {
-        fun onItemClick(animal: Animals)
+        fun onItemClick(animal: Animal)
     }
 
     fun setOnItemClickListener(listener: onAnimalClickListener) {

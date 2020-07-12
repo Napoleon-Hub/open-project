@@ -4,12 +4,10 @@ import android.graphics.Canvas
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.open.presentation.adapter.RecyclerAdapter
+import kotlin.math.abs
 
 
-// Сlass for handling touches / clicks
-@Suppress("DEPRECATED_IDENTITY_EQUALS")
-abstract class SimpleItemTouchHelperCallback : ItemTouchHelper.Callback() {
-    private val ALPHA_FULL = 1.0f
+open class SimpleItemTouchHelperCallback : ItemTouchHelper.Callback() {
 
     override fun isLongPressDragEnabled(): Boolean {
         return true
@@ -24,6 +22,10 @@ abstract class SimpleItemTouchHelperCallback : ItemTouchHelper.Callback() {
         }
     }
 
+    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+        TODO("Not yet implemented")
+    }
+
     override fun onChildDraw(
         c: Canvas, recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float,
@@ -31,7 +33,7 @@ abstract class SimpleItemTouchHelperCallback : ItemTouchHelper.Callback() {
     ) {
         if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
             val width = viewHolder.itemView.width.toFloat()
-            val alpha = 1.0f - Math.abs(dX) / width
+            val alpha = 1.0f - abs(dX) / width
             viewHolder.itemView.alpha = alpha
             viewHolder.itemView.translationX = dX
         } else {
@@ -49,5 +51,17 @@ abstract class SimpleItemTouchHelperCallback : ItemTouchHelper.Callback() {
         val dragFlags = 0 // ItemTouchHelper.UP or ItemTouchHelper.DOWN
         val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
         return ItemTouchHelper.SimpleCallback.makeMovementFlags(dragFlags, swipeFlags)
+    }
+
+    override fun onMove(
+        recyclerView: RecyclerView,
+        viewHolder: RecyclerView.ViewHolder,
+        target: RecyclerView.ViewHolder
+    ): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    companion object{
+        private const val  ALPHA_FULL = 1.0f
     }
 }

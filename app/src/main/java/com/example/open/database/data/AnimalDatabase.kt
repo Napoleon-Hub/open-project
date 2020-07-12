@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.open.database.dao.AnimalsDao
-import com.example.open.database.entity.Animals
+import com.example.open.database.entity.Animal
 
-@Database(entities = [Animals::class], version = 1)
+@Database(entities = [Animal::class], version = 1)
 abstract class AnimalDatabase : RoomDatabase() {
 
     abstract fun animalsDao(): AnimalsDao
